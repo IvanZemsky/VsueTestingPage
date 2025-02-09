@@ -11,16 +11,18 @@ import clsx from "clsx";
 import { ThemeContext } from "@/shared/model/theme-context";
 
 export const Layout = () => {
-   const {theme} = useContext(ThemeContext);
+   const { theme } = useContext(ThemeContext);
 
    return (
       <div className={clsx(styles.app, theme)}>
          <Header />
-         <Wrapper>
+         <main>
             <Suspense fallback={<Loading />}>
-               <Outlet />
+               <Wrapper className={styles.wrapper}>
+                  <Outlet />
+               </Wrapper>
             </Suspense>
-         </Wrapper>
+         </main>
          <Footer />
       </div>
    );

@@ -1,6 +1,4 @@
-import { Home } from "../pages/home";
-import { Test } from "../pages/test";
-import { Result } from "../pages/result";
+import {Home, Test, Result} from "@/pages/lazy"
 import { Layout } from "./layout";
 import { createBrowserRouter } from "react-router";
 
