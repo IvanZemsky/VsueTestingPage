@@ -1,0 +1,47 @@
+.nextQuestionBtn{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 41%;
+   border-radius: 35px;
+   font-size: 50px;
+   background-color: var(--dark-background);
+   transition: 0.14s all linear;
+}
+
+.nextQuestionBtn svg{
+   width: 42px;
+   fill: var(--sea-blue);
+   transition: 0.14s all linear;
+}
+
+.nextQuestionBtn:hover{
+  background-color: var(--checked-answer);
+}
+
+.nextQuestionBtn:hover svg{
+   fill: #FFF;
+}
+
+@media screen and (max-width: 575px) {
+   .nextQuestionBtn{
+      width: 100%;
+      padding: 15px;
+      border-radius: 23px;
+   }
+   .nextQuestionBtn svg{
+      width: 20px;
+   }
+}
+
+@media (hover: none) and (pointer: coarse) {
+   .nextQuestionBtn:hover{
+      background-color: var(--dark-background);
+   }
+   .nextQuestionBtn:hover svg{
+      fill: var(--sea-blue);
+   }
+   .nextQuestionBtn:active{
+      background-color: var(--checked-answer);
+   }
+}
