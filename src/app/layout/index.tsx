@@ -9,6 +9,7 @@ import "@/shared/ui/styles/wrapper.css";
 import "@/shared/ui/styles/_vars.css";
 import clsx from "clsx";
 import { ThemeContext } from "@/shared/model/theme-context";
+import { TestContextProvider } from "@/entities/test";
 
 export const Layout = () => {
    const { theme } = useContext(ThemeContext);
@@ -19,7 +20,9 @@ export const Layout = () => {
          <main>
             <Suspense fallback={<Loading />}>
                <Wrapper className={styles.wrapper}>
-                  <Outlet />
+                  <TestContextProvider>
+                     <Outlet />
+                  </TestContextProvider>
                </Wrapper>
             </Suspense>
          </main>

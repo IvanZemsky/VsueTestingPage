@@ -1,4 +1,4 @@
-import {Home, Test, Result} from "@/pages/lazy"
+import {Home, Test, Result} from "@/pages"
 import { Layout } from "./layout";
 import { createBrowserRouter } from "react-router";
 

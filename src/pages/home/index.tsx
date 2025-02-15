@@ -1,5 +1,6 @@
 import { Tag } from "@/shared/ui";
 import styles from "./styles.module.css";
+import { Link } from "react-router";
 
 const Home = () => {
    return (
@@ -30,11 +31,11 @@ const Home = () => {
                   пройдите тест и убедитесь в правильности своего выбора!
                </p>
             </div>
-            <button
+            <Link to={"/test"}
                className={styles.startBtn}
             >
                Начать
-            </button>
+            </Link>
          </div>
       </section>
    );

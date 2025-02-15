@@ -4,14 +4,12 @@
    grid-template-columns: 100%;
    height: 100vh;
    color: var(--text);
-   background-image: url("/src/shared/assets/img/background.webp");
-   background-position: center;
-   background-size: cover;
-   background-repeat: no-repeat;
+   background-color: var(--background);
 }
 
 .wrapper {
    display: flex;
    align-items: center;
+   justify-content: center;
    height: 100%;
 }

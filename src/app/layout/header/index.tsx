@@ -2,6 +2,8 @@ import styles from "./styles.module.css";
 import { Logo, BurgerMenu, ThemeBtn, Wrapper } from "@/shared/ui";
 
 export const Header = () => {
+   const currentYear = new Date().getFullYear();
+
    return (
       <header className={styles.header}>
          <Wrapper>
@@ -14,7 +16,7 @@ export const Header = () => {
                      className={styles.link}
                      target="_blank"
                   >
-                     Приём 2024
+                     Приём {currentYear}
                   </a>
                   <a
                      href="https://vsuet.ru/abitur"
