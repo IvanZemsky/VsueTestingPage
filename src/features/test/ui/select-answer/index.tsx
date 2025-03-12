@@ -3,13 +3,16 @@ import styles from "./styles.module.css";
 import NextQuestionBtn from "../next-question-btn";
 import { AnswerBtn } from "../answer-btn";
 import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
+import { useNavigate } from "react-router";
 
 type Props = {
+   isEndQuestion: boolean;
    answers: Answer[];
    setScene: Dispatch<SetStateAction<number>>;
 };
 
-export const SelectAnswer = ({ answers, setScene }: Props) => {
+export const SelectAnswer = ({ answers, setScene, isEndQuestion }: Props) => {
+   const navigate = useNavigate()
    const [selectedAnswerId, setSelectedAnswerId] = useState<AnswerId | null>(
       null
    );
@@ -24,7 +27,13 @@ export const SelectAnswer = ({ answers, setScene }: Props) => {
          increaseScore(
             answers.find((answer) => answer.id === selectedAnswerId)!.score
          );
+         if (isEndQuestion) {
+            window.scrollTo({ top: 0 });
+            navigate("/result")
+            return
+         }
          setScene((prevScene) => prevScene + 1);
+         setSelectedAnswerId(null);
          window.scrollTo({ top: 0 });
       }
    };

@@ -4,7 +4,7 @@ export type TestId = number;
 
 export type Answer = {
    id: AnswerId;
-   title: string;
+   text: string;
    score: number;
 };
 
@@ -17,10 +17,10 @@ export type Question = {
 export type Test = {
    id: TestId;
    name: string;
-   desc: string;
-   cover: string;
+   description: string;
+   img: string;
    maxResult: number;
-   questions: Question[];
+   questions: Question[]; // убрать - подггужаются только при загрузке теста
 };
 
 export type LargestPercentResult = 35 | 75 | 100;

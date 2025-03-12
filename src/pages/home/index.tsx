@@ -1,8 +1,15 @@
 import { Tag } from "@/shared/ui";
 import styles from "./styles.module.css";
 import { Link } from "react-router";
+import { useEffect, useState } from "react";
+import { Test, testsService } from "@/entities/test";
 
 const Home = () => {
+   const [data, setData] = useState<Test[] | null>(null)
+   useEffect(() => {
+      testsService.getTests().then(data => setData(data))
+   }, [])
+
    return (
       <section className={styles.intro}>
          <div className={styles.content}>

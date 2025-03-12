@@ -21,7 +21,7 @@ export const AnswerBtn = ({ answer, id, value, onChange }: Props) => {
             onChange={onChange}
          />
          <label className={styles.answerText} htmlFor={String(id)}>
-            {answer.title}
+            {answer.text}
          </label>
       </div>
    );

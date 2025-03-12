@@ -1,5 +1,5 @@
+import { getTextResult } from "../../lib/getTextResult";
 import styles from "./styles.module.css";
-import { getTextResult } from "@/entities/test";
 
 type Props = {
    percentResult: number;
