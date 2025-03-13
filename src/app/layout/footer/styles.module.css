@@ -7,8 +7,8 @@
    align-items: center;
    gap: 20px;
    padding: 11px 25px;
-   color: var(--inverse-text);
-   background-color: var(--block-background);
+   color: var(--primary-contrast);
+   background-color: var(--primary-main);
    border-radius: 35px 35px 0 0;
    font-size: 15px;
 }
@@ -33,7 +33,7 @@
 .footer svg{
    width: 27px;
    height: 27px;
-   fill: var(--inverse-text);
+   fill: var(--primary-contrast);
 }
 
 @media screen and (max-width: 515px) {

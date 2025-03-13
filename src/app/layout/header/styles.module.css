@@ -1,23 +1,22 @@
-.header{
+.header {
    position: relative;
    padding: 14px 0;
-   border-bottom: 4px solid var(--block-background);
    font-size: 20px;
-   background-color: var(--super-blue);
+   background-color: var(--primary-main);
 }
 
-:global(.dark) .header{
+:global(.dark) .header {
    background-color: var(--dark-grey);
 }
 
-.content{
+.content {
    display: flex;
    justify-content: space-between;
    align-items: center;
    gap: 30px;
 }
 
-.links{
+.links {
    display: flex;
    gap: 25px;
    margin-left: auto;
@@ -30,19 +29,19 @@
    padding: 5px 40px 5px 10px;
    font-size: 0.9em;
    border-radius: 20px;
-   background: var(--block-background);
-   color: var(--inverse-text);
+   background: var(--primary-contrast);
+   color: var(--primary-contrast-text);
 }
 
-.link:hover{
-   filter: brightness(95%)
+.link:hover {
+   filter: brightness(95%);
 }
 
-:global(.dark) .link:hover{
-   filter: brightness(110%)
+:global(.dark) .link:hover {
+   filter: brightness(110%);
 }
 
-.link::before{
+.link::before {
    content: "";
    position: absolute;
    top: 0px;
@@ -50,33 +49,28 @@
    line-height: 1.7;
 }
 
-.link:nth-child(1):before{
+.link:nth-child(1):before {
    content: "📖";
 }
 
-.link:nth-child(2):before{
+.link:nth-child(2):before {
    content: "👨‍💼";
 }
 
-:global(.dark) .link span{
-   color: var(--white);
-}
-
-.link:hover span{
-   background-color: rgba(0,0,0,0);
+:global(.dark) .link span {
    color: var(--white);
 }
 
 @media screen and (max-width: 610px) {
-   .header{
+   .header {
       padding: 7px 0;
    }
 
-   .content{
+   .content {
       gap: 15px;
    }
 
-   .links{
+   .links {
       position: absolute;
       top: 0;
       left: 0;
@@ -92,8 +86,7 @@
       z-index: 400;
    }
 
-   .linksOpened{
+   .linksOpened {
       transform: translateY(0);
    }
-   
 }

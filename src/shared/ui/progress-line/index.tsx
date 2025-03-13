@@ -1,8 +1,11 @@
 import styles from "./styles.module.css";
 
-export const ProgressLine = (props) => {
-   const { questionNumber, questionAmount } = props;
+type Props = {
+   questionNumber: number;
+   questionAmount: number;
+};
 
+export const ProgressLine = ({ questionNumber, questionAmount }: Props) => {
    return (
       <div className={styles.progressWrap}>
          <label className={styles.progressInfo} htmlFor="test-progress">

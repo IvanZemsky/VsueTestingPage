@@ -1,3 +1,4 @@
+export { TextInput } from "./text-input";
 export { Wrapper } from "./wrapper";
 export { BurgerMenu } from "./burger-menu";
 export { Logo } from "./logo";

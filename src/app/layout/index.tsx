@@ -5,7 +5,6 @@ import { Suspense, useContext } from "react";
 import styles from "./styles.module.css";
 import { Loading, Wrapper } from "@/shared/ui";
 import "@/shared/ui/styles/fonts.css";
-import "@/shared/ui/styles/wrapper.css";
 import "@/shared/ui/styles/_vars.css";
 import clsx from "clsx";
 import { ThemeContext } from "@/shared/model/theme-context";
