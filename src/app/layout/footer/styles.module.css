@@ -13,10 +13,6 @@
    font-size: 15px;
 }
 
-:global(.dark) .content{
-   background-color: var(--dark-grey);
-}
-
 .info{
    display: flex;
    align-items: center;

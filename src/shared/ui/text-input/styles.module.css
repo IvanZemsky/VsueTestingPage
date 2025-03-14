@@ -4,12 +4,12 @@
    flex-shrink: 1;
    padding: 10px 20px;
    border-radius: 19px;
-   background-color: var(--secondary-contrast);
-   border: 2px solid var(--secondary-main);
+   background-color: var(--primary-contrast);
+   border: 2px solid var(--primary-main);
 }
 
 .input::placeholder {
-   color: var(--secondary-contrast-text);
+   color: var(--primary-contrast-text);
    transition: color 0.15s linear;
 }
 

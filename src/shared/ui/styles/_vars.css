@@ -8,7 +8,20 @@
    --secondary-super-light: #00a8ff;
    --secondary-contrast: #fff;
    --secondary-contrast-text: #000;
+
+   --neutral-main: #e7e7e7;
 }
 
 .dark {
+   --primary-main: #1c1c1c;
+   --primary-contrast: #fff;
+   --primary-contrast-text: #00;
+
+   --secondary-main: #262626;
+   --secondary-light: #363636;
+   --secondary-super-light: #575757;
+   --secondary-contrast: #fff;
+   --secondary-contrast-text: #000;
+
+   --neutral-main: #e7e7e7;
 }

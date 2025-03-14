@@ -32,7 +32,7 @@ const Home = () => {
             </div>
          </div>
          <div className={styles.list}>
-            <TestsList tests={[TEST]} />
+            <TestsList tests={[TEST, TEST, TEST, TEST, TEST, TEST, TEST]} />
             <TestsFilters />
          </div>
       </section>

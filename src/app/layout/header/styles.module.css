@@ -5,10 +5,6 @@
    background-color: var(--primary-main);
 }
 
-:global(.dark) .header {
-   background-color: var(--dark-grey);
-}
-
 .content {
    display: flex;
    justify-content: space-between;
@@ -37,10 +33,6 @@
    filter: brightness(95%);
 }
 
-:global(.dark) .link:hover {
-   filter: brightness(110%);
-}
-
 .link::before {
    content: "";
    position: absolute;
@@ -55,10 +47,6 @@
 
 .link:nth-child(2):before {
    content: "👨‍💼";
-}
-
-:global(.dark) .link span {
-   color: var(--white);
 }
 
 @media screen and (max-width: 610px) {

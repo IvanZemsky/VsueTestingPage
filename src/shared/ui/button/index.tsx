@@ -4,9 +4,11 @@ import clsx from "clsx";
 
 type Props = {
    icon?: ReactNode;
+   color?: "primary" | "secondary";
 } & ComponentProps<"button">;
 
 export const Button = ({
+   color = "primary",
    icon,
    children,
    className,
@@ -15,7 +17,7 @@ export const Button = ({
 }: Props) => {
    return (
       <button
-         className={clsx(styles.button, className)}
+         className={clsx(styles.button, className, styles[color])}
          type={type}
          {...attributes}
       >

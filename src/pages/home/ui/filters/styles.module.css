@@ -1,3 +1,54 @@
-.input{
-   
+.filters{
+   display: flex;
+   flex-direction: column;
+   gap: 25px;
 }
+
+.filterBlock {
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+}
+
+.filterName{
+   color: var(--primary-contrast-text);
+   font-weight: 600;
+   font-size: 20px;
+}
+
+:global(.dark) .filterName{
+   color: var(--primary-contrast);
+}
+
+.searchInput {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+}
+
+.searchInput input {
+   height: 50px;
+   font-size: 16px;
+}
+
+.searchInput button {
+   width: 50px;
+   height: 50px;
+   padding: 0;
+}
+
+.searchInput button svg {
+   width: 28px;
+   height: 28px;
+   fill: var(--primary-main);
+}
+
+.select {
+   font-size: 16px;
+}
+
+.select label button{
+   padding: 10px 15px;
+}
+
+

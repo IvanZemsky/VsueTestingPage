@@ -1,3 +1,4 @@
+export { SearchIcon } from "./search";
 export { ArrowBottomIcon } from "./arrow-bottom";
 export { EyeIcon } from "./eye";
 export { MoonIcon } from "./moon";

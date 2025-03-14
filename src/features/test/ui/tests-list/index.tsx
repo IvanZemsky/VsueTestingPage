@@ -9,7 +9,7 @@ export const TestsList = ({ tests }: Props) => {
    return (
       <div className={styles.content}>
          {tests.map((test) => (
-            <TestCard data={test} />
+            <TestCard data={test} key={test.id} />
          ))}
       </div>
    );
