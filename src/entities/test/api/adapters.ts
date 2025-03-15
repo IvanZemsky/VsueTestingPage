@@ -1,4 +1,4 @@
-import { Test } from "../model/types";
+import { Question, Test } from "../model/types";
 import { GetQuestionDto, GetTestDto } from "./dto";
 
 export const testAdapters = {
@@ -9,7 +9,7 @@ export const testAdapters = {
          ...data,
       };
    },
-   question: (dto: GetQuestionDto) => {
+   question: (dto: GetQuestionDto): Question => {
       const { _id, ...data } = dto;
       return {
          id: _id,

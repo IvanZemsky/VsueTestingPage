@@ -15,7 +15,7 @@
 .dark {
    --primary-main: #1c1c1c;
    --primary-contrast: #fff;
-   --primary-contrast-text: #00;
+   --primary-contrast-text: #000;
 
    --secondary-main: #262626;
    --secondary-light: #363636;

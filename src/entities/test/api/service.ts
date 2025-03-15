@@ -24,11 +24,13 @@ export const testsService = {
    },
 
    async fetchQuestionByTestId(testId: TestId) {
-      const response = await API.get<GetQuestionDto>(
+      const response = await API.get<GetQuestionDto[]>(
          setPath(Tests, testId, Questions)
       );
 
-      const question = testAdapters.question(response);
+      const question = response.map((question) =>
+         testAdapters.question(question)
+      );
 
       return question;
    },

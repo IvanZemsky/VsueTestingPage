@@ -1,18 +1,18 @@
-import { Test } from "@/entities/test";
+import { Question as QuestionType } from "@/entities/test";
 import { ReactNode, useState } from "react";
 import styles from "./styles.module.css";
 import { SelectAnswer } from "../select-answer";
 
 type Props = {
-   test: Test;
+   questions: QuestionType[];
    selectAnswer: ReactNode;
 };
 
-export const Question = ({ test }: Props) => {
+export const Question = ({ questions }: Props) => {
    const [questionId, setQuestionId] = useState(0);
 
-   const currentQuestion = test.questions[questionId];
-   const isEndQuestion = questionId === test.questions.length - 1
+   const currentQuestion = questions[questionId];
+   const isEndQuestion = questionId === questions.length - 1;
 
    return (
       <section className={styles.question}>

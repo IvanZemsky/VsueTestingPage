@@ -36,6 +36,11 @@
 }
 
 .check label{
+   color: var(--secondary-contrast-text);
    cursor: pointer;
    font-size: 16px;
+}
+
+:global(.dark) .check label{
+   color: var(--secondary-contrast);
 }

@@ -1,12 +1,30 @@
-import { TEST } from "@/entities/test";
-import { Question } from "@/features/test/ui/question";
+import { testsService } from "@/entities/test";
+import { Question } from "@/features/test/";
+import { useQuery } from "@/shared/lib";
+import styles from "./styles.module.css";
+import { useParams } from "react-router";
 
 const Test = () => {
-   
+   const { testId } = useParams<{ testId: string }>();
 
-   return ( 
-      <Question test={TEST} selectAnswer={undefined} />
+   const { data, isLoading, isError } = useQuery({
+      queryFn: () => testsService.fetchQuestionByTestId(testId!),
+      enabled: !!testId,
+   });
+
+   if (isLoading) {
+      return <p>Загрузка...</p>;
+   }
+
+   if (!testId || isError || !data) {
+      return <p>Произошла ошибка</p>;
+   }
+
+   return (
+      <div className={styles.content}>
+         <Question questions={data} selectAnswer={undefined} />;
+      </div>
    );
-}
+};
 
-export default Test
+export default Test;

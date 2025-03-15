@@ -6,18 +6,23 @@
    max-width: 908px;
    padding: 38px;
    border-radius: 45px;
-   border: 2px solid var(--blue);
-   background-color: var(--background);
+   border: 2px solid var(--primary-main);
+   background-color: var(--primary-contrast);
 }
 
 :global(.dark) .question {
-   border: 2px solid var(--white);
+   background-color: var(--primary-main);
 }
 
 .questionTitle {
    margin-bottom: 20px;
    font-size: 24px;
    font-weight: 500;
+   color: var(--secondary-contrast-text);
+}
+
+:global(.dark) .questionTitle {
+   color: var(--secondary-contrast);
 }
 
 @media screen and (max-height: 901px) {

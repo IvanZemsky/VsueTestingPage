@@ -2,25 +2,37 @@
    display: flex;
    justify-content: center;
    align-items: center;
-   width: 41%;
-   border-radius: 35px;
+   border-radius: 25px;
+   padding: 15px 25px;
    font-size: 50px;
-   background-color: var(--dark-background);
+   background-color: var(--neutral-main);
    transition: 0.14s all linear;
 }
 
 .nextQuestionBtn svg{
-   width: 42px;
-   fill: var(--sea-blue);
+   width: 30px;
+   fill: var(--secondary-main);
    transition: 0.14s all linear;
 }
 
+:global(.dark) .nextQuestionBtn{
+   background-color: var(--secondary-main);
+}
+
+:global(.dark) .nextQuestionBtn svg{
+   fill: var(--secondary-contrast);
+}
+
 .nextQuestionBtn:hover{
-  background-color: var(--checked-answer);
+  background-color: var(--secondary-main);
+}
+
+:global(.dark) .nextQuestionBtn:hover{
+   background-color: var(--secondary-light);
 }
 
 .nextQuestionBtn:hover svg{
-   fill: #FFF;
+   fill: var(--secondary-contrast);
 }
 
 @media screen and (max-width: 575px) {
@@ -31,17 +43,5 @@
    }
    .nextQuestionBtn svg{
       width: 20px;
-   }
-}
-
-@media (hover: none) and (pointer: coarse) {
-   .nextQuestionBtn:hover{
-      background-color: var(--dark-background);
-   }
-   .nextQuestionBtn:hover svg{
-      fill: var(--sea-blue);
-   }
-   .nextQuestionBtn:active{
-      background-color: var(--checked-answer);
    }
 }
