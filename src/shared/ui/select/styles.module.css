@@ -1,27 +1,3 @@
-.wrap {
-   position: relative;
-   display: flex;
-   flex-direction: column;
-}
-
-.wrap.opened button svg {
-   transform: rotate(-180deg);
-}
-
-.wrap button {
-   justify-content: space-between;
-   width: 100%;
-   text-transform: inherit;
-   font: inherit;
-}
-
-.wrap button svg {
-   width: 14px;
-   height: auto;
-   stroke: var(--secondary-main);
-   transition: transform 0.15s linear;
-}
-
 .options {
    position: absolute;
    top: calc(100% + 4px);
@@ -30,9 +6,9 @@
    flex-direction: column;
    width: 100%;
    max-height: 200px;
-   overflow-y: scroll;
-   background-color: var(--primaryMain);
-   border-radius: 12px;
+   overflow-y: auto;
+   box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.15);
+   border-radius: 10px;
    z-index: 50;
 }
 
@@ -42,19 +18,7 @@
    font: inherit;
 }
 
-.options > * button{
-   border-bottom: 0;
-}
-
-.options > *:not(:first-child) button {
+.options > * button {
+   border: 0;
    border-radius: 0;
-}
-
-.options > *:first-child button {
-   border-radius: 12px 12px 0 0;
-}
-
-.options > *:last-child button {
-   border-radius: 0 0 12px 12px;
-   border-bottom: 2px solid var(--secondary-main);
 }

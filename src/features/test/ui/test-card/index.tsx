@@ -1,6 +1,7 @@
 import { Test } from "@/entities/test";
 import styles from "./styles.module.css";
 import { EyeIcon } from "@/shared/ui/icons";
+import { Link } from "react-router";
 
 type Props = {
    data: Test;
@@ -9,7 +10,7 @@ export const TestCard = ({ data }: Props) => {
    const { name, description, img, tags, specializationCode, passes } = data;
 
    return (
-      <div className={styles.content}>
+      <Link to={`/tests/${data.id}`} className={styles.content}>
          <div className={styles.imgWrap}>
             <img src={img} alt={`Cover of test "${name}"`} />
          </div>
@@ -35,6 +36,6 @@ export const TestCard = ({ data }: Props) => {
                ))}
             </div>
          </div>
-      </div>
+      </Link>
    );
 };

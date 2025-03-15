@@ -1,20 +1,35 @@
 import { API, API_ENDPOINTS } from "@/shared/api";
-import { Test } from "../model/types";
 import { ApiQueryOptions } from "@/shared/api/types";
+import { testAdapters } from "./adapters";
+import { GetQuestionDto, GetTestDto } from "./dto";
+import { TestId } from "../model/types";
+import { setPath } from "@/shared/lib";
 
-const { Tests } = API_ENDPOINTS;
+const { Tests, Questions } = API_ENDPOINTS;
 
 export const testsService = {
-   async getTests() {
+   async fetchTests() {
       const options: ApiQueryOptions = {
          query: {
             department: "TEST_DEPARTMENT",
-            limit: 10
+            limit: 10,
          },
       };
 
-      const tests = await API.get<Test[]>(Tests, options);
+      const response = await API.get<GetTestDto[]>(Tests, options);
+
+      const tests = response.map((test) => testAdapters.test(test));
 
       return tests;
+   },
+
+   async fetchQuestionByTestId(testId: TestId) {
+      const response = await API.get<GetQuestionDto>(
+         setPath(Tests, testId, Questions)
+      );
+
+      const question = testAdapters.question(response);
+
+      return question;
    },
 };

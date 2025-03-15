@@ -1,6 +1,6 @@
 export type AnswerId = string;
 export type QuestionId = number;
-export type TestId = number;
+export type TestId = string;
 
 export type Subject =
    | "Химия"

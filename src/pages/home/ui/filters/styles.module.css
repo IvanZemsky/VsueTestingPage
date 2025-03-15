@@ -27,6 +27,7 @@
 }
 
 .searchInput input {
+   flex-grow: 1;
    height: 50px;
    font-size: 16px;
 }
@@ -51,4 +52,16 @@
    padding: 10px 15px;
 }
 
+.entranceTestsColumns{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   gap: 12px;
+}
+
+.entranceTestsColumns > div{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
 

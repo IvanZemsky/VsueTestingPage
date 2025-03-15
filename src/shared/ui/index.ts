@@ -1,3 +1,6 @@
+export { CheckGroup } from "./check-group";
+export { Check } from "./check";
+export { Dropdown } from "./dropdown";
 export { Select } from "./select";
 export { Button } from "./button";
 export { TextInput } from "./text-input";

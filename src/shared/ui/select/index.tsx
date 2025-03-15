@@ -2,10 +2,8 @@ import { ChangeEvent, ComponentProps, useState } from "react";
 import styles from "./styles.module.css";
 import { SelectContext } from "./context";
 import { SelectOption } from "./select-option";
-import clsx from "clsx";
-import { Button } from "../button";
-import { useOutsideClick } from "../../lib/hooks/useOutsideClick";
-import { ArrowBottomIcon } from "../icons";
+import { Dropdown } from "../dropdown";
+import { useDropdown } from "../../lib/hooks/use-dropdown";
 
 type Props = ComponentProps<"input"> & {
    title: string;
@@ -14,14 +12,9 @@ type Props = ComponentProps<"input"> & {
 export const Select = (props: Props) => {
    const { title, className, name, children, value, onChange } = props;
 
-   const [isOpen, setIsOpen] = useState(false);
    const [label, setLabel] = useState("");
 
-   const selectRef = useOutsideClick<HTMLDivElement>(() => setIsOpen(false));
-
-   const handleOpenClick = () => {
-      setIsOpen(!isOpen);
-   };
+   const { isOpen, toggleOpen, selectRef, setIsOpen } = useDropdown();
 
    const handleCheck = (event: ChangeEvent<HTMLInputElement>) => {
       onChange?.(event);
@@ -29,28 +22,19 @@ export const Select = (props: Props) => {
    };
 
    return (
-      <div
-         className={clsx(styles.wrap, className, {
-            [styles.opened]: isOpen,
-         })}
+      <Dropdown
+         title={label || title}
+         className={className}
+         open={isOpen}
+         toggleOpen={toggleOpen}
          ref={selectRef}
       >
-         <Button
-            color="secondary"
-            onClick={handleOpenClick}
-            icon={<ArrowBottomIcon />}
+         <SelectContext.Provider
+            value={{ onChange: handleCheck, value, name, setLabel }}
          >
-            {label || title}
-         </Button>
-
-         {isOpen && (
-            <SelectContext.Provider
-               value={{ onChange: handleCheck, value, name, setLabel }}
-            >
-               <div className={styles.options}>{children}</div>
-            </SelectContext.Provider>
-         )}
-      </div>
+            <div className={styles.options}>{children}</div>
+         </SelectContext.Provider>
+      </Dropdown>
    );
 };
 
