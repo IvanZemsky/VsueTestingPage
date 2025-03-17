@@ -1,8 +1,8 @@
-.footer{
+.footer {
    margin-top: auto;
 }
 
-.content{
+.content {
    display: flex;
    align-items: center;
    gap: 20px;
@@ -13,27 +13,27 @@
    font-size: 15px;
 }
 
-.info{
+.info {
    display: flex;
    align-items: center;
    gap: 20px;
 }
 
-.socials{
+.socials {
    display: flex;
    align-items: center;
    margin-left: auto;
    gap: 15px;
 }
 
-.footer svg{
+.footer svg {
    width: 27px;
    height: 27px;
    fill: var(--primary-contrast);
 }
 
 @media screen and (max-width: 515px) {
-   .info{
+   .info {
       flex-direction: column;
       align-items: flex-start;
       gap: 5px;

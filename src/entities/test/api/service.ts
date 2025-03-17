@@ -1,11 +1,11 @@
-import { API, API_ENDPOINTS } from "@/shared/api";
-import { ApiQueryOptions } from "@/shared/api/types";
-import { testAdapters } from "./adapters";
-import { GetQuestionDto, GetTestDto } from "./dto";
-import { TestId } from "../model/types";
-import { setPath } from "@/shared/lib";
+import { API, API_ENDPOINTS } from "@/shared/api"
+import { ApiQueryOptions } from "@/shared/api/types"
+import { testAdapters } from "./adapters"
+import { GetQuestionDto, GetTestDto } from "./dto"
+import { TestId } from "../model/types"
+import { setPath } from "@/shared/lib"
 
-const { Tests, Questions } = API_ENDPOINTS;
+const { Tests, Questions } = API_ENDPOINTS
 
 export const testsService = {
    async fetchTests() {
@@ -14,24 +14,20 @@ export const testsService = {
             department: "TEST_DEPARTMENT",
             limit: 10,
          },
-      };
+      }
 
-      const response = await API.get<GetTestDto[]>(Tests, options);
+      const response = await API.get<GetTestDto[]>(Tests, options)
 
-      const tests = response.map((test) => testAdapters.test(test));
+      const tests = response.map((test) => testAdapters.test(test))
 
-      return tests;
+      return tests
    },
 
    async fetchQuestionByTestId(testId: TestId) {
-      const response = await API.get<GetQuestionDto[]>(
-         setPath(Tests, testId, Questions)
-      );
+      const response = await API.get<GetQuestionDto[]>(setPath(Tests, testId, Questions))
 
-      const question = response.map((question) =>
-         testAdapters.question(question)
-      );
+      const question = response.map((question) => testAdapters.question(question))
 
-      return question;
+      return question
    },
-};
+}

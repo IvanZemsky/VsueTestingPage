@@ -1,20 +1,16 @@
-.result{
+.result {
    margin-bottom: 20px;
    border-radius: 45px;
-   background-color: var(--super-blue);
+   background-color: var(--secondary-main);
 }
 
-:global(.dark) .result{
-   background-color: var(--dark-grey);
-}
-
-.resultNumber{
+.resultNumber {
    text-align: center;
    font-size: 100px;
    font-weight: 600;
 }
 
-.resultNumber span{
+.resultNumber span {
    display: inline-block;
    padding-right: 3px;
    text-align: right;

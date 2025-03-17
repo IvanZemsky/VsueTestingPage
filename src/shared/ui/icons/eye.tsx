@@ -12,5 +12,5 @@ export const EyeIcon = () => {
             strokeLinejoin="round"
          />
       </svg>
-   );
-};
+   )
+}

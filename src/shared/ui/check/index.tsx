@@ -1,14 +1,14 @@
-import { ComponentProps } from "react";
-import styles from "./styles.module.css";
-import clsx from "clsx";
+import { ComponentProps } from "react"
+import styles from "./styles.module.css"
+import clsx from "clsx"
 
 export type CheckProps = ComponentProps<"input"> & {
-   label?: string;
-};
+   label?: string
+}
 
 export const Check = ({ label, id, className, ...attrs }: CheckProps) => {
    return (
-      <div className={clsx(styles.check, className)}>
+      <label htmlFor={id} className={clsx(styles.check, className)}>
          <input
             type="checkbox"
             id={id}
@@ -16,7 +16,7 @@ export const Check = ({ label, id, className, ...attrs }: CheckProps) => {
             name={attrs.name}
             {...attrs}
          />
-         {label && <label htmlFor={id}>{label}</label>}
-      </div>
-   );
-};
+         {label && <span>{label}</span>}
+      </label>
+   )
+}

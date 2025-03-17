@@ -1,34 +1,33 @@
-import { useState, useEffect } from "react";
-import styles from "./styles.module.css";
+import { useState, useEffect } from "react"
+import styles from "./styles.module.css"
 
 type Props = {
-   percentResult: number;
+   percentResult: number
 }
 
 export const ResultCounter = ({ percentResult }: Props) => {
-   const [resultNumber, setResultNumber] = useState(0);
+   const [resultNumber, setResultNumber] = useState(0)
 
    useEffect(() => {
       const interval = setInterval(() => {
          setResultNumber((prev) => {
             if (prev >= percentResult) {
-               clearInterval(interval);
-               return prev;
+               clearInterval(interval)
+               return prev
             } else {
-               return prev + 1;
+               return prev + 1
             }
-         });
-      }, 20);
+         })
+      }, 20)
 
-      return () => clearInterval(interval);
-   }, [percentResult, resultNumber]);
+      return () => clearInterval(interval)
+   }, [percentResult, resultNumber])
 
    return (
       <div className={styles.result}>
          <p className={styles.resultNumber}>
-            <span>{resultNumber}</span>
-            %
+            <span>{resultNumber}</span>%
          </p>
       </div>
-   );
-};
+   )
+}

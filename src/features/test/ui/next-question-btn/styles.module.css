@@ -1,4 +1,4 @@
-.nextQuestionBtn{
+.nextQuestionBtn {
    display: flex;
    justify-content: center;
    align-items: center;
@@ -9,39 +9,39 @@
    transition: 0.14s all linear;
 }
 
-.nextQuestionBtn svg{
-   width: 30px;
+.nextQuestionBtn svg {
+   width: 20px;
    fill: var(--secondary-main);
    transition: 0.14s all linear;
 }
 
-:global(.dark) .nextQuestionBtn{
+:global(.dark) .nextQuestionBtn {
    background-color: var(--secondary-main);
 }
 
-:global(.dark) .nextQuestionBtn svg{
+:global(.dark) .nextQuestionBtn svg {
    fill: var(--secondary-contrast);
 }
 
-.nextQuestionBtn:hover{
-  background-color: var(--secondary-main);
+.nextQuestionBtn:hover {
+   background-color: var(--secondary-main);
 }
 
-:global(.dark) .nextQuestionBtn:hover{
+:global(.dark) .nextQuestionBtn:hover {
    background-color: var(--secondary-light);
 }
 
-.nextQuestionBtn:hover svg{
+.nextQuestionBtn:hover svg {
    fill: var(--secondary-contrast);
 }
 
 @media screen and (max-width: 575px) {
-   .nextQuestionBtn{
+   .nextQuestionBtn {
       width: 100%;
       padding: 15px;
       border-radius: 23px;
    }
-   .nextQuestionBtn svg{
+   .nextQuestionBtn svg {
       width: 20px;
    }
 }

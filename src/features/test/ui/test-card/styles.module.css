@@ -1,4 +1,6 @@
 .content {
+   display: flex;
+   flex-direction: column;
    background-color: var(--secondary-main);
    border-radius: 15px;
    color: var(--secondary-contrast);
@@ -8,7 +10,7 @@
    box-shadow: 0px 0px 0px 0px var(--secondary-super-light);
 }
 
-.content:hover{
+.content:hover {
    cursor: pointer;
    box-shadow: 0px 0px 0px 4px var(--secondary-super-light);
 }
@@ -28,13 +30,21 @@
 .info {
    display: flex;
    flex-direction: column;
-   gap: 15px;
+   gap: 10px;
+   flex-grow: 1;
    padding: 15px 15px 20px 15px;
 }
 
 .name {
    font-size: 18px;
    font-weight: 500;
+}
+
+.mainInfoWrap{
+   display: flex;
+   flex-direction: column;
+   margin-top: auto;
+   gap: 15px;
 }
 
 .desc {

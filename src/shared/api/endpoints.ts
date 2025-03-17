@@ -1,4 +1,4 @@
 export const API_ENDPOINTS = {
-   Tests: 'tests',
-   Questions: 'questions'
+   Tests: "tests",
+   Questions: "questions",
 }

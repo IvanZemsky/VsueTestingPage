@@ -1,7 +1,7 @@
-import styles from "./styles.module.css";
-import { VKIcon } from "@/shared/ui/icons/vk";
-import { TelegramIcon } from "@/shared/ui/icons/telegram";
-import { Wrapper } from "@/shared/ui";
+import styles from "./styles.module.css"
+import { VKIcon } from "@/shared/ui/icons/vk"
+import { TelegramIcon } from "@/shared/ui/icons/telegram"
+import { Wrapper } from "@/shared/ui"
 
 export const Footer = () => {
    return (
@@ -23,5 +23,5 @@ export const Footer = () => {
             </div>
          </Wrapper>
       </footer>
-   );
-};
+   )
+}

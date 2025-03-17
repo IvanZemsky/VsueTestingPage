@@ -1,4 +1,4 @@
-import styles from "./styles.module.css";
+import styles from "./styles.module.css"
 
 export const Logo = () => {
    return (
@@ -12,5 +12,5 @@ export const Logo = () => {
             Воронежский государственный университет инженерных технологий
          </span>
       </a>
-   );
-};
+   )
+}

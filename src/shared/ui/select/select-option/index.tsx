@@ -1,13 +1,13 @@
-import { ChangeEvent, ComponentProps } from "react";
-import styles from "./styles.module.css";
-import { Button } from "../..";
-import clsx from "clsx";
-import { useSelectContext } from "../context";
+import { ChangeEvent, ComponentProps } from "react"
+import styles from "./styles.module.css"
+import { Button } from "../.."
+import clsx from "clsx"
+import { useSelectContext } from "../context"
 
 export type CheckProps = ComponentProps<"input"> & {
-   text: string;
-   fillContainer?: boolean;
-};
+   text: string
+   fillContainer?: boolean
+}
 
 export const SelectOption = (props: CheckProps) => {
    const {
@@ -17,21 +17,21 @@ export const SelectOption = (props: CheckProps) => {
       className,
       onDoubleClick,
       ...attributes
-   } = props;
+   } = props
 
-   const { onChange, name, value, setLabel } = useSelectContext();
+   const { onChange, name, value, setLabel } = useSelectContext()
 
    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-      setLabel?.(text);
-      onChange?.(event);
-   };
+      setLabel?.(text)
+      onChange?.(event)
+   }
 
    return (
       <div
          className={clsx(
             styles.wrap,
             { [styles.fillContainer]: fillContainer },
-            className
+            className,
          )}
          onDoubleClick={onDoubleClick}
       >
@@ -53,5 +53,5 @@ export const SelectOption = (props: CheckProps) => {
             </Button>
          </label>
       </div>
-   );
-};
+   )
+}

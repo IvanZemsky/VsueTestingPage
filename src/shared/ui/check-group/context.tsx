@@ -1,18 +1,18 @@
-import { ChangeEventHandler, createContext, useContext } from "react";
+import { ChangeEventHandler, createContext, useContext } from "react"
 
 export const CheckGroupContext = createContext<{
-   name?: string;
-   onChange?: ChangeEventHandler<HTMLInputElement>;
-}>({});
+   name?: string
+   onChange?: ChangeEventHandler<HTMLInputElement>
+}>({})
 
 export function useCheckGroupContext() {
-   const context = useContext(CheckGroupContext);
+   const context = useContext(CheckGroupContext)
 
    if (!context) {
       throw new Error(
-         "All sub components of CheckGroupItem must be wrapped in CheckGroupContext"
-      );
+         "All sub components of CheckGroupItem must be wrapped in CheckGroupContext",
+      )
    }
 
-   return context;
+   return context
 }

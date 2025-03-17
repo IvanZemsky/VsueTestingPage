@@ -1,28 +1,28 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
 
 type UseQueryOptions<T> = {
-   queryFn: () => Promise<T>;
-   enabled?: boolean;
-};
+   queryFn: () => Promise<T>
+   enabled?: boolean
+}
 
 export function useQuery<T>({ queryFn, enabled = true }: UseQueryOptions<T>) {
-   const [isLoading, setIsLoading] = useState(false);
-   const [isError, setIsError] = useState(false);
-   const [data, setData] = useState<T | null>(null);
+   const [isLoading, setIsLoading] = useState(false)
+   const [isError, setIsError] = useState(false)
+   const [data, setData] = useState<T | null>(null)
 
    useEffect(() => {
-      if (!enabled) return;
+      if (!enabled) return
 
-      setIsLoading(true);
+      setIsLoading(true)
       queryFn()
          .then((response) => setData(response))
          .catch((error: Error) => {
             if (error.name !== "AbortError") {
-               setIsError(true);
+               setIsError(true)
             }
          })
-         .finally(() => setIsLoading(false));
-   }, []);
+         .finally(() => setIsLoading(false))
+   }, [])
 
-   return { isLoading, isError, data };
+   return { isLoading, isError, data }
 }

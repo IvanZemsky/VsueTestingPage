@@ -1,42 +1,55 @@
-import { Answer, AnswerId, useTestContext } from "@/entities/test";
-import styles from "./styles.module.css";
-import NextQuestionBtn from "../next-question-btn";
-import { AnswerBtn } from "../answer-btn";
-import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
-import { useNavigate } from "react-router";
+import { Answer, AnswerId, TestId, useTestContext } from "@/entities/test"
+import styles from "./styles.module.css"
+import NextQuestionBtn from "../next-question-btn"
+import { AnswerBtn } from "../answer-btn"
+import { ChangeEvent, Dispatch, SetStateAction, useState } from "react"
+import { useNavigate } from "react-router"
 
 type Props = {
-   isEndQuestion: boolean;
-   answers: Answer[];
-   setScene: Dispatch<SetStateAction<number>>;
-};
+   testId: TestId
+   isEndQuestion: boolean
+   answers: Answer[]
+   setScene: Dispatch<SetStateAction<number>>
+}
 
-export const SelectAnswer = ({ answers, setScene, isEndQuestion }: Props) => {
+export const SelectAnswer = ({ testId, answers, setScene, isEndQuestion }: Props) => {
    const navigate = useNavigate()
-   const [selectedAnswerId, setSelectedAnswerId] = useState<AnswerId | null>(
-      null
-   );
-   const { increaseScore } = useTestContext();
+   const [selectedAnswerId, setSelectedAnswerId] = useState<AnswerId | null>(null)
+   const { increaseScore, score, maxScore } = useTestContext()
 
    const handleAnswerChange = (event: ChangeEvent<HTMLInputElement>) => {
-      setSelectedAnswerId(event.target.value);
-   };
+      setSelectedAnswerId(event.target.value)
+   }
 
    const handleNextQuestionClick = () => {
       if (selectedAnswerId) {
-         increaseScore(
-            answers.find((answer) => answer.id === selectedAnswerId)!.score
-         );
+         const answerScore = answers.find(
+            (answer) => answer.id === selectedAnswerId,
+         )!.score
+
+         increaseScore(answerScore)
+
          if (isEndQuestion) {
-            window.scrollTo({ top: 0 });
-            navigate("/result")
+            const localStorageScore: Record<TestId, { score: number; maxScore: number }> =
+               JSON.parse(localStorage.getItem("results") || "{}")
+
+            localStorageScore[testId] = {
+               score: score.current,
+               maxScore: maxScore.current,
+            }
+
+            localStorage.setItem("results", JSON.stringify(localStorageScore))
+
+            window.scrollTo({ top: 0 })
+            navigate("result")
             return
          }
-         setScene((prevScene) => prevScene + 1);
-         setSelectedAnswerId(null);
-         window.scrollTo({ top: 0 });
+
+         setScene((prevScene) => prevScene + 1)
+         setSelectedAnswerId(null)
+         window.scrollTo({ top: 0 })
       }
-   };
+   }
 
    return (
       <form className={styles.controls}>
@@ -56,5 +69,5 @@ export const SelectAnswer = ({ answers, setScene, isEndQuestion }: Props) => {
             disabled={!selectedAnswerId}
          />
       </form>
-   );
-};
+   )
+}

@@ -1,6 +1,6 @@
-export type AnswerId = string;
-export type QuestionId = number;
-export type TestId = string;
+export type AnswerId = string
+export type QuestionId = number
+export type TestId = string
 
 export type Subject =
    | "Химия"
@@ -9,41 +9,44 @@ export type Subject =
    | "Математика"
    | "Обществознание"
    | "Русский язык"
-   | "Иностранный язык (англ)"
+   | "Английский язык"
    | "Информатика"
    | "География"
-   | "История";
+   | "История"
 
-export type Department = "УИТС" | "ИТ" | "ЭХТ" | "ЭУ" | "Т" | "СПО";
+export type Department = "УИТС" | "ИТ" | "ЭХТ" | "ЭУ" | "Т" | "СПО"
+
+export type Qualification = "Бакалаврит" | "Специалитет" | "Магистратура" | "СПО"
 
 export type Tag = {
-   name: string;
-   emoji: string;
+   name: string
+   emoji: string
 }
 
 export type Answer = {
-   id: AnswerId;
-   text: string;
-   score: number;
-};
+   id: AnswerId
+   text: string
+   score: number
+}
 
 export type Question = {
-   id: QuestionId;
-   title: string;
-   answers: Answer[];
-};
+   id: QuestionId
+   title: string
+   answers: Answer[]
+}
 
 export type Test = {
-   id: TestId;
-   name: string;
-   description: string;
-   img: string;
-   maxResult: number;
-   entranceTests: Subject[];
+   id: TestId
+   name: string
+   description: string
+   img: string
+   maxResult: number
+   entranceTests: Subject[]
    specializationCode: string
-   tags: Tag[];
-   department: Department;
+   tags: Tag[]
+   department: Department
+   qualification: Qualification
    passes: number
-};
+}
 
-export type LargestPercentResult = 35 | 75 | 100;
+export type LargestPercentResult = 35 | 75 | 100

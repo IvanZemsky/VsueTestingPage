@@ -1,6 +1,6 @@
-import {Home, Test, Result} from "@/pages"
-import { Layout } from "./layout";
-import { createBrowserRouter } from "react-router";
+import { Home, Test, Result } from "@/pages"
+import { Layout } from "./layout"
+import { createBrowserRouter } from "react-router"
 
 export const router = createBrowserRouter([
    {
@@ -16,9 +16,9 @@ export const router = createBrowserRouter([
             element: <Test />,
          },
          {
-            path: "result",
+            path: "tests/:testId/result",
             element: <Result />,
          },
       ],
    },
-]);
+])

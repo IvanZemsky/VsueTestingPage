@@ -1,10 +1,10 @@
-.controls{
+.controls {
    display: flex;
    flex-grow: 1;
    gap: 15px;
 }
 
-.answersList{
+.answersList {
    display: flex;
    flex-direction: column;
    gap: 10px;
@@ -12,10 +12,10 @@
 }
 
 @media screen and (max-width: 575px) {
-   .controls{
+   .controls {
       flex-direction: column;
    }
-   .answersList{
+   .answersList {
       width: 100%;
    }
 }

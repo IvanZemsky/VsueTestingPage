@@ -6,6 +6,13 @@
    color: var(--primary-main);
 }
 
+.intro img {
+   max-width: 369px;
+   width: 100%;
+   height: auto;
+   width: auto;
+}
+
 .introDesc {
    display: flex;
    flex-direction: column;
@@ -28,7 +35,7 @@
    font-weight: 500;
 }
 
-.introDescText a{
+.introDescText a {
    color: var(--primary-contrast);
    text-decoration: underline;
 }

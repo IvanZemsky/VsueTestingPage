@@ -1,15 +1,12 @@
-import styles from "./styles.module.css";
-import { RightArrowIcon } from "@/shared/ui/icons";
+import styles from "./styles.module.css"
+import { RightArrowIcon } from "@/shared/ui/icons"
 
 type Props = {
-   onClick: () => void;
+   onClick: () => void
    disabled: boolean
-};
+}
 
-export const NextQuestionBtn = ({
-   onClick,
-   disabled
-}: Props) => {
+export const NextQuestionBtn = ({ onClick, disabled }: Props) => {
    return (
       <button
          type="button"
@@ -19,7 +16,7 @@ export const NextQuestionBtn = ({
       >
          <RightArrowIcon />
       </button>
-   );
-};
+   )
+}
 
-export default NextQuestionBtn;
+export default NextQuestionBtn

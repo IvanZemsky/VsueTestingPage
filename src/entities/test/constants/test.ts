@@ -1,4 +1,4 @@
-import { Test } from "../model/types";
+import { Test } from "../model/types"
 
 export const TEST: Test = {
    id: 1,
@@ -16,4 +16,4 @@ export const TEST: Test = {
    ],
    department: "СПО",
    passes: 0,
-};
+}

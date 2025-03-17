@@ -1,4 +1,4 @@
-.filters{
+.filters {
    display: flex;
    flex-direction: column;
    gap: 25px;
@@ -10,13 +10,13 @@
    gap: 15px;
 }
 
-.filterName{
+.filterName {
    color: var(--primary-contrast-text);
    font-weight: 600;
    font-size: 20px;
 }
 
-:global(.dark) .filterName{
+:global(.dark) .filterName {
    color: var(--primary-contrast);
 }
 
@@ -48,20 +48,19 @@
    font-size: 16px;
 }
 
-.select label button{
+.select label button {
    padding: 10px 15px;
 }
 
-.entranceTestsColumns{
+.entranceTestsColumns {
    display: flex;
    flex-wrap: wrap;
    justify-content: space-between;
    gap: 12px;
 }
 
-.entranceTestsColumns > div{
+.entranceTestsColumns > div {
    display: flex;
    flex-direction: column;
    gap: 10px;
 }
-

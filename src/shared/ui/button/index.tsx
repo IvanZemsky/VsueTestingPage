@@ -1,11 +1,11 @@
-import { ComponentProps, ReactNode } from "react";
-import styles from "./styles.module.css";
-import clsx from "clsx";
+import { ComponentProps, ReactNode } from "react"
+import styles from "./styles.module.css"
+import clsx from "clsx"
 
 type Props = {
-   icon?: ReactNode;
-   color?: "primary" | "secondary";
-} & ComponentProps<"button">;
+   icon?: ReactNode
+   color?: "primary" | "secondary"
+} & ComponentProps<"button">
 
 export const Button = ({
    color = "primary",
@@ -24,5 +24,5 @@ export const Button = ({
          {children}
          {icon}
       </button>
-   );
-};
+   )
+}

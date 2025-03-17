@@ -1,20 +1,22 @@
 .content {
    display: flex;
-   gap: 25px;
-}
-
-.column{
-   display: flex;
    flex-direction: column;
    gap: 25px;
 }
 
-.column:first-child{
-   flex-shrink: 1;
+.list{
+   display: flex;
+   align-items: flex-start;
+   gap: 25px;
 }
 
-@media screen and (max-width: 1050px) {
-   .filters{
+.filters{
+   max-width: 356px;
+   width: 100%;
+}
+
+@media screen and (max-width: 1150px) {
+   .filters {
       position: fixed;
       top: 0;
       right: 0;

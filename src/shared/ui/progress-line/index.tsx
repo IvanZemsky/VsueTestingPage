@@ -1,9 +1,9 @@
-import styles from "./styles.module.css";
+import styles from "./styles.module.css"
 
 type Props = {
-   questionNumber: number;
-   questionAmount: number;
-};
+   questionNumber: number
+   questionAmount: number
+}
 
 export const ProgressLine = ({ questionNumber, questionAmount }: Props) => {
    return (
@@ -13,12 +13,12 @@ export const ProgressLine = ({ questionNumber, questionAmount }: Props) => {
             <span>/</span>
             <span>{questionAmount} </span>
          </label>
-         <progress
+         <div
             className={styles.progressLine}
-            id="test-progress"
-            value={questionNumber}
-            max={questionAmount}
-         />
+            style={{
+               width: `${(questionNumber / questionAmount) * 100}%`,
+            }}
+         ></div>
       </div>
-   );
-};
+   )
+}

@@ -2,6 +2,7 @@
    display: flex;
    flex-direction: column;
    align-self: center;
+   gap: 20px;
    width: 100%;
    max-width: 908px;
    padding: 38px;
@@ -15,7 +16,6 @@
 }
 
 .questionTitle {
-   margin-bottom: 20px;
    font-size: 24px;
    font-weight: 500;
    color: var(--secondary-contrast-text);
@@ -29,7 +29,7 @@
    .question {
       padding: 23px;
    }
-   .questionTitle{
+   .questionTitle {
       font-size: 22px;
    }
 }

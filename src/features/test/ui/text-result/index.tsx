@@ -1,12 +1,12 @@
-import { getTextResult } from "../../lib/getTextResult";
-import styles from "./styles.module.css";
+import { getTextResult } from "../../lib/getTextResult"
+import styles from "./styles.module.css"
 
 type Props = {
-   percentResult: number;
-};
+   percentResult: number
+}
 
 export const TextResult = ({ percentResult }: Props) => {
-   const text = getTextResult(percentResult);
+   const text = getTextResult(percentResult)
 
-   return <p className={styles.resultText}>🥳 {text}</p>;
-};
+   return <p className={styles.resultText}>🥳 {text}</p>
+}

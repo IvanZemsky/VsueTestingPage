@@ -1,13 +1,13 @@
-import styles from "./styles.module.css";
-import { Answer } from "@/entities/test";
-import { ChangeEventHandler } from "react";
+import styles from "./styles.module.css"
+import { Answer } from "@/entities/test"
+import { ChangeEventHandler } from "react"
 
 type Props = {
-   answer: Answer;
-   id: string;
-   value: string;
-   onChange: ChangeEventHandler<HTMLInputElement>;
-};
+   answer: Answer
+   id: string
+   value: string
+   onChange: ChangeEventHandler<HTMLInputElement>
+}
 
 export const AnswerBtn = ({ answer, id, value, onChange }: Props) => {
    return (
@@ -24,5 +24,5 @@ export const AnswerBtn = ({ answer, id, value, onChange }: Props) => {
             {answer.text}
          </label>
       </div>
-   );
-};
+   )
+}

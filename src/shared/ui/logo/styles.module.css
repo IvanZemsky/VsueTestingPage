@@ -1,4 +1,4 @@
-.logo{
+.logo {
    display: flex;
    align-items: center;
    gap: 15px;
@@ -6,30 +6,30 @@
    color: #fff;
 }
 
-.text{
+.text {
    text-align: right;
    line-height: 0.9;
 }
 
-.abbr{
+.abbr {
    font-size: 24px;
    font-weight: 700;
 }
 
-.year{
+.year {
    font-size: 15px;
    font-weight: 500;
 }
 
-.mainText{
+.mainText {
    max-width: 315px;
    font-size: 15px;
    font-weight: 600;
    color: #fff;
 }
 
-@media screen and (max-width: 945px) {
-   .mainText{
+@media screen and (max-width: 550px) {
+   .mainText {
       display: none;
    }
 }
