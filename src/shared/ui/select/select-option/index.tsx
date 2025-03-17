@@ -47,7 +47,7 @@ export const SelectOption = (props: CheckProps) => {
             <Button
                type="button"
                color="secondary"
-               className={clsx(styles.checkBtn, { [styles.checked]: checked })}
+               className={clsx(styles.optionBtn, { [styles.checked]: checked })}
             >
                {text}
             </Button>

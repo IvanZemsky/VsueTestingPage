@@ -1,3 +1,9 @@
+.wrap > button span {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
 .options {
    position: absolute;
    top: calc(100% + 4px);

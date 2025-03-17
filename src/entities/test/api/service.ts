@@ -1,18 +1,20 @@
 import { API, API_ENDPOINTS } from "@/shared/api"
 import { ApiQueryOptions } from "@/shared/api/types"
 import { testAdapters } from "./adapters"
-import { GetQuestionDto, GetTestDto } from "./dto"
-import { TestId } from "../model/types"
+import { GetDepartmentDto, GetDirectionDto, GetQuestionDto, GetTestDto } from "./dto"
+import { TestId, TestsFilters } from "../model/types"
 import { setPath } from "@/shared/lib"
 
-const { Tests, Questions } = API_ENDPOINTS
+const { Tests, Questions, Departments, Directions } = API_ENDPOINTS
 
 export const testsService = {
-   async fetchTests() {
+   async fetchTests(filters: TestsFilters) {
+      const { entranceTests, ...restFilters } = filters
+      
       const options: ApiQueryOptions = {
          query: {
-            department: "TEST_DEPARTMENT",
-            limit: 10,
+            ...restFilters,
+            entrance_tests: entranceTests.join(","),
          },
       }
 
@@ -26,8 +28,24 @@ export const testsService = {
    async fetchQuestionByTestId(testId: TestId) {
       const response = await API.get<GetQuestionDto[]>(setPath(Tests, testId, Questions))
 
-      const question = response.map((question) => testAdapters.question(question))
+      const question = response.map(testAdapters.question)
 
       return question
+   },
+
+   async fetchDepartments() {
+      const response = await API.get<GetDepartmentDto[]>(Departments)
+
+      const departments = response.map(testAdapters.department)
+
+      return departments
+   },
+
+   async fetchDirections() {
+      const response = await API.get<GetDirectionDto[]>(Directions)
+
+      const directions = response.map(testAdapters.direction)
+
+      return directions
    },
 }

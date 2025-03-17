@@ -2,10 +2,11 @@ import { useState, useEffect } from "react"
 
 type UseQueryOptions<T> = {
    queryFn: () => Promise<T>
+   dependency?: unknown
    enabled?: boolean
 }
 
-export function useQuery<T>({ queryFn, enabled = true }: UseQueryOptions<T>) {
+export function useQuery<T>({ queryFn, enabled = true, dependency }: UseQueryOptions<T>) {
    const [isLoading, setIsLoading] = useState(false)
    const [isError, setIsError] = useState(false)
    const [data, setData] = useState<T | null>(null)
@@ -22,7 +23,7 @@ export function useQuery<T>({ queryFn, enabled = true }: UseQueryOptions<T>) {
             }
          })
          .finally(() => setIsLoading(false))
-   }, [])
+   }, [dependency])
 
    return { isLoading, isError, data }
 }

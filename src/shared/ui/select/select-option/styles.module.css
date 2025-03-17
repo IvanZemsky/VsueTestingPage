@@ -39,3 +39,7 @@
    background-color: var(--neutral-main);
    color: var(--secondary-contrast-text);
 }
+
+.optionBtn{
+   text-align: start;
+}

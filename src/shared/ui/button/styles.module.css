@@ -31,3 +31,7 @@
    filter: brightness(0.7);
    pointer-events: none;
 }
+
+.button svg{
+   flex-shrink: 0;
+}

@@ -1,4 +1,4 @@
-import { Answer, Department, Subject, Tag } from "../model/types"
+import { Answer, DepartmentId, Qualification, Subject, Tag } from "../model/types"
 
 export type GetTestDto = {
    _id: string
@@ -9,8 +9,20 @@ export type GetTestDto = {
    entranceTests: Subject[]
    specializationCode: string
    tags: Tag[]
-   department: Department
+   department: DepartmentId
+   qualification: Qualification
    passes: number
+}
+
+export type GetDepartmentDto = {
+   _id: string
+   name: string
+   abbreviation: string
+}
+
+export type GetDirectionDto = {
+   _id: string
+   name: string
 }
 
 export type GetQuestionDto = {

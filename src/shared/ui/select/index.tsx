@@ -4,6 +4,7 @@ import { SelectContext } from "./context"
 import { SelectOption } from "./select-option"
 import { Dropdown } from "../dropdown"
 import { useDropdown } from "../../lib/hooks/use-dropdown"
+import clsx from "clsx"
 
 type Props = ComponentProps<"input"> & {
    title: string
@@ -24,7 +25,7 @@ export const Select = (props: Props) => {
    return (
       <Dropdown
          title={label || title}
-         className={className}
+         className={clsx(styles.wrap, className)}
          open={isOpen}
          toggleOpen={toggleOpen}
          ref={selectRef}

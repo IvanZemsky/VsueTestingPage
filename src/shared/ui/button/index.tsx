@@ -21,7 +21,7 @@ export const Button = ({
          type={type}
          {...attributes}
       >
-         {children}
+         <span className={styles.buttonText}>{children}</span>
          {icon}
       </button>
    )

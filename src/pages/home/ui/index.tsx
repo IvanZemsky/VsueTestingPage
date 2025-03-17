@@ -2,17 +2,20 @@ import styles from "./styles.module.css"
 import { TestsFilters } from "./filters"
 import { Intro } from "./intro"
 import { HomeTestsList } from "./list"
+import { TestsFiltersContextProvider } from "../model/filters-context/provider"
 
 const Home = () => {
    return (
       <section className={styles.content}>
          <Intro />
-         <div className={styles.list}>
-            <HomeTestsList />
-            <div className={styles.filters}>
-               <TestsFilters />
+         <TestsFiltersContextProvider>
+            <div className={styles.list}>
+               <HomeTestsList />
+               <div className={styles.filters}>
+                  <TestsFilters />
+               </div>
             </div>
-         </div>
+         </TestsFiltersContextProvider>
       </section>
    )
 }

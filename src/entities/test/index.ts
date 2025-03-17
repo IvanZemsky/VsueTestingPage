@@ -11,6 +11,8 @@ export type {
    Test,
    TestId,
    LargestPercentResult,
-   Department,
+   DepartmentId,
    Subject,
+   Department,
+   TestsFilters,
 } from "./model/types"
