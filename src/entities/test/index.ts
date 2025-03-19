@@ -3,16 +3,4 @@ export { useTestContext } from "./model/test-context"
 export { TestContextProvider } from "./model/test-context/provider"
 export { TEST } from "./constants/test"
 export { TEST_RESULTS } from "./constants/test-results"
-export type {
-   Question,
-   QuestionId,
-   Answer,
-   AnswerId,
-   Test,
-   TestId,
-   LargestPercentResult,
-   DepartmentId,
-   Subject,
-   Department,
-   TestsFilters,
-} from "./model/types"
+export * from "./model/types"

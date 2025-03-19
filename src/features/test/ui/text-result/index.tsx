@@ -1,4 +1,4 @@
-import { getTextResult } from "../../lib/getTextResult"
+import { getTextResult } from "../../lib/get-result-text"
 import styles from "./styles.module.css"
 
 type Props = {

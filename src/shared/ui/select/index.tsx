@@ -1,4 +1,4 @@
-import { ChangeEvent, ComponentProps, useState } from "react"
+import { ChangeEvent, ComponentProps, useEffect, useState } from "react"
 import styles from "./styles.module.css"
 import { SelectContext } from "./context"
 import { SelectOption } from "./select-option"
@@ -21,6 +21,12 @@ export const Select = (props: Props) => {
       onChange?.(event)
       setIsOpen(false)
    }
+
+   useEffect(() => {
+      if (value === undefined) {
+         setLabel("")
+      }
+   }, [value])
 
    return (
       <Dropdown

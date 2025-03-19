@@ -6,8 +6,6 @@ import { useTestsFiltersContext } from "../../model/filters-context/context"
 export const HomeTestsList = () => {
    const { filters } = useTestsFiltersContext()
 
-   console.log("FILTERS")
-
    const { data, isError, isLoading } = useQuery({
       queryFn: () => testsService.fetchTests(filters),
       dependency: filters,

@@ -26,7 +26,12 @@ export type GetDirectionDto = {
 }
 
 export type GetQuestionDto = {
-   _id: number
+   _id: string
    title: string
    answers: Answer[]
+}
+
+export type UpdateTestPassesDto = {
+   testId: string
+   passes: number
 }

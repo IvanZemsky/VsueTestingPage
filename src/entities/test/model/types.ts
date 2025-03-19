@@ -1,5 +1,5 @@
 export type AnswerId = string
-export type QuestionId = number
+export type QuestionId = string
 export type TestId = string
 export type DepartmentId = string
 
@@ -69,4 +69,9 @@ export type TestsFilters = {
    direction: string
 }
 
-export type LargestPercentResult = 35 | 75 | 100
+export type MaxPercentResult = 35 | 75 | 100
+
+export type UpdateTestPasses = {
+   testId: TestId
+   passes: number
+}

@@ -30,6 +30,17 @@ export function useFiltersForm() {
    const handleDepartmentChange = (event: ChangeEvent<HTMLInputElement>) => {
       setDepartment(event.target.value)
    }
+   const reset = () => {
+      setEntranceTests([])
+      setQualification(undefined)
+      setDepartment(undefined)
+      setDirection(undefined)
+      console.log("search", searchRef?.current?.value)
+      console.log("entranceTests", entranceTests)
+      console.log("qualification", qualification)
+      console.log("department", department)
+      console.log("direction", direction)
+   }
 
    const handleSubmit = (event: FormEvent) => {
       event.preventDefault()
@@ -40,11 +51,6 @@ export function useFiltersForm() {
          department: department || "",
          direction: direction || "",
       }
-      // console.log("search", search)
-      // console.log("entranceTests", entranceTests)
-      // console.log("qualification", qualification)
-      // console.log("department", department)
-      // console.log("direction", direction)
       setFilters((prev) => ({
          ...prev,
          ...filters,
@@ -75,5 +81,6 @@ export function useFiltersForm() {
          handler: handleDirectionChange,
       },
       handleSubmit,
+      reset,
    }
 }

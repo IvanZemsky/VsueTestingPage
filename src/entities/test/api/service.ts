@@ -1,51 +1,84 @@
 import { API, API_ENDPOINTS } from "@/shared/api"
 import { ApiQueryOptions } from "@/shared/api/types"
 import { testAdapters } from "./adapters"
-import { GetDepartmentDto, GetDirectionDto, GetQuestionDto, GetTestDto } from "./dto"
-import { TestId, TestsFilters } from "../model/types"
+import {
+   GetDepartmentDto,
+   GetDirectionDto,
+   GetQuestionDto,
+   GetTestDto,
+   UpdateTestPassesDto,
+} from "./dto"
+import {
+   Department,
+   Direction,
+   Question,
+   Test,
+   TestId,
+   TestsFilters,
+   UpdateTestPasses,
+} from "../model/types"
 import { setPath } from "@/shared/lib"
 
-const { Tests, Questions, Departments, Directions } = API_ENDPOINTS
+const { Tests, Questions, Departments, Directions, Passes } = API_ENDPOINTS
 
 export const testsService = {
-   async fetchTests(filters: TestsFilters) {
+   async fetchTests(
+      filters: TestsFilters,
+      options: ApiQueryOptions = {},
+   ): Promise<Test[]> {
       const { entranceTests, ...restFilters } = filters
-      
-      const options: ApiQueryOptions = {
+
+      const queryOptions: ApiQueryOptions = {
+         ...options,
          query: {
             ...restFilters,
             entrance_tests: entranceTests.join(","),
          },
       }
 
-      const response = await API.get<GetTestDto[]>(Tests, options)
-
-      const tests = response.map((test) => testAdapters.test(test))
-
+      const response = await API.get<GetTestDto[]>(Tests, queryOptions)
+      const tests = response.map(testAdapters.main)
       return tests
    },
 
-   async fetchQuestionByTestId(testId: TestId) {
-      const response = await API.get<GetQuestionDto[]>(setPath(Tests, testId, Questions))
+   async fetchTestById(id: TestId, options: ApiQueryOptions = {}): Promise<Test> {
+      const response = await API.get<GetTestDto>(setPath(Tests, id), options)
+      const test = testAdapters.main(response)
+      return test
+   },
 
-      const question = response.map(testAdapters.question)
-
+   async fetchQuestionByTestId(
+      testId: TestId,
+      options: ApiQueryOptions = {},
+   ): Promise<Question[]> {
+      const response = await API.get<GetQuestionDto[]>(
+         setPath(Tests, testId, Questions),
+         options,
+      )
+      const question = response.map(testAdapters.main)
       return question
    },
 
-   async fetchDepartments() {
-      const response = await API.get<GetDepartmentDto[]>(Departments)
-
-      const departments = response.map(testAdapters.department)
-
+   async fetchDepartments(options: ApiQueryOptions = {}): Promise<Department[]> {
+      const response = await API.get<GetDepartmentDto[]>(Departments, options)
+      const departments = response.map(testAdapters.main)
       return departments
    },
 
-   async fetchDirections() {
-      const response = await API.get<GetDirectionDto[]>(Directions)
-
-      const directions = response.map(testAdapters.direction)
-
+   async fetchDirections(options: ApiQueryOptions = {}): Promise<Direction[]> {
+      const response = await API.get<GetDirectionDto[]>(Directions, options)
+      const directions = response.map(testAdapters.main)
       return directions
+   },
+
+   async updateTestPasses(
+      testId: TestId,
+      options: ApiQueryOptions = {},
+   ): Promise<UpdateTestPasses> {
+      const response = await API.patch<UpdateTestPassesDto>(
+         setPath(Tests, testId, Passes),
+         options,
+      )
+      return response
    },
 }

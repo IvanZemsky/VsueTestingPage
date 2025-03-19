@@ -3,7 +3,7 @@ import styles from "./styles.module.css"
 import { SearchIcon } from "@/shared/ui/icons"
 import { Select } from "@/shared/ui"
 import { qualificationFilter, subjectsFilter } from "../../constants/filters"
-import { useFiltersForm } from "../../lib/useFiltersForm"
+import { useFiltersForm } from "../../lib/use-filters-form"
 
 export const TestsFilters = () => {
    const {
@@ -13,6 +13,7 @@ export const TestsFilters = () => {
       direction,
       department,
       entranceTests,
+      reset,
    } = useFiltersForm()
 
    const firstSubjectColumn = subjectsFilter.slice(0, subjectsFilter.length / 2)
@@ -25,9 +26,7 @@ export const TestsFilters = () => {
       <form className={styles.filters} onSubmit={handleSubmit}>
          <div className={styles.searchInput}>
             <TextInput placeholder="Поиск" ref={searchRef} />
-            <Button type="submit">
-               <SearchIcon />
-            </Button>
+            <Button type="submit" icon={<SearchIcon />} />
          </div>
          <div className={styles.filterBlock}>
             <p className={styles.filterName}>Направление</p>
@@ -38,20 +37,20 @@ export const TestsFilters = () => {
                value={direction.value}
                onChange={direction.handler}
             >
-               {direction.query.data &&
-                  direction.query.data.map((direction) => (
-                     <Select.Option
-                        key={direction.id}
-                        text={direction.name}
-                        value={direction.id}
-                        id={direction.id}
-                     />
-                  ))}
+               {direction.query.data?.map((direction) => (
+                  <Select.Option
+                     key={direction.id}
+                     text={direction.name}
+                     value={direction.id}
+                     id={direction.id}
+                  />
+               ))}
             </Select>
          </div>
          <div className={styles.filterBlock}>
             <p className={styles.filterName}>Вступительные испытания</p>
             <CheckGroup
+               value={entranceTests.value}
                setValue={entranceTests.set}
                className={styles.entranceTestsColumns}
             >
@@ -86,15 +85,14 @@ export const TestsFilters = () => {
                value={department.value}
                onChange={department.handler}
             >
-               {department.query.data &&
-                  department.query.data.map((department) => (
-                     <Select.Option
-                        key={department.id}
-                        text={department.name}
-                        value={department.id}
-                        id={department.abbreviation}
-                     />
-                  ))}
+               {department.query.data?.map((department) => (
+                  <Select.Option
+                     key={department.id}
+                     text={department.name}
+                     value={department.id}
+                     id={department.abbreviation}
+                  />
+               ))}
             </Select>
          </div>
          <div className={styles.filterBlock}>
@@ -116,6 +114,9 @@ export const TestsFilters = () => {
                ))}
             </Select>
          </div>
+         <Button className={styles.resetBtn} color="secondary" onClick={reset}>
+            Очистить фильтры
+         </Button>
       </form>
    )
 }

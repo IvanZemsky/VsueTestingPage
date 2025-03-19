@@ -4,6 +4,8 @@ import NextQuestionBtn from "../next-question-btn"
 import { AnswerBtn } from "../answer-btn"
 import { ChangeEvent, Dispatch, SetStateAction, useState } from "react"
 import { useNavigate } from "react-router"
+import { useIncrementTestPasses } from "../../lib/use-increment-test-passes"
+import { saveScoreToLS } from "../../lib/save-score-to-ls"
 
 type Props = {
    testId: TestId
@@ -16,6 +18,7 @@ export const SelectAnswer = ({ testId, answers, setScene, isEndQuestion }: Props
    const navigate = useNavigate()
    const [selectedAnswerId, setSelectedAnswerId] = useState<AnswerId | null>(null)
    const { increaseScore, score, maxScore } = useTestContext()
+   const incrementPasses = useIncrementTestPasses(testId, isEndQuestion)
 
    const handleAnswerChange = (event: ChangeEvent<HTMLInputElement>) => {
       setSelectedAnswerId(event.target.value)
@@ -30,15 +33,7 @@ export const SelectAnswer = ({ testId, answers, setScene, isEndQuestion }: Props
          increaseScore(answerScore)
 
          if (isEndQuestion) {
-            const localStorageScore: Record<TestId, { score: number; maxScore: number }> =
-               JSON.parse(localStorage.getItem("results") || "{}")
-
-            localStorageScore[testId] = {
-               score: score.current,
-               maxScore: maxScore.current,
-            }
-
-            localStorage.setItem("results", JSON.stringify(localStorageScore))
+            saveScoreToLS({ testId, score: score.current, maxScore: maxScore.current })
 
             window.scrollTo({ top: 0 })
             navigate("result")
@@ -66,7 +61,7 @@ export const SelectAnswer = ({ testId, answers, setScene, isEndQuestion }: Props
          </div>
          <NextQuestionBtn
             onClick={handleNextQuestionClick}
-            disabled={!selectedAnswerId}
+            disabled={!selectedAnswerId || (isEndQuestion && incrementPasses.isLoading)}
          />
       </form>
    )

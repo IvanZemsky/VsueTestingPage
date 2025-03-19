@@ -1,8 +1,8 @@
 import { setPath } from "../lib"
 import { getSearchParamsString } from "../lib/utils/getSearchParamsString"
-import { ApiClientOptions, ApiQueryOptions, QueryParams } from "./types"
+import { ApiClientOptions, ApiQueryOptions, IApiClient, QueryParams } from "./types"
 
-export class ApiClient {
+export class ApiClient implements IApiClient {
    baseUrl: string
 
    constructor({ baseUrl }: ApiClientOptions) {
@@ -31,9 +31,7 @@ export class ApiClient {
       const requestString = this.getRequestString(setPath(this.baseUrl, path), query)
 
       const response = await fetch(requestString, requestInit)
-
       const data: T = await response.json()
-
       return data
    }
 
@@ -48,9 +46,7 @@ export class ApiClient {
       const requestString = this.getRequestString(setPath(this.baseUrl, path), query)
 
       const response = await fetch(requestString, requestInit)
-
       const data: T = await response.json()
-
       return data
    }
 }

@@ -3,11 +3,12 @@ import { CheckGroupContext } from "./context"
 import { CheckGroupItem } from "./check-group-item"
 
 type Props = ComponentProps<"input"> & {
+   value: string[]
    setValue: Dispatch<SetStateAction<string[]>>
 }
 
 export const CheckGroup = (props: Props) => {
-   const { className, name, children, setValue } = props
+   const { className, name, children, setValue, value } = props
 
    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
       const { checked, value } = event.target
@@ -19,7 +20,7 @@ export const CheckGroup = (props: Props) => {
    }
    return (
       <div className={className}>
-         <CheckGroupContext.Provider value={{ name, onChange: handleChange }}>
+         <CheckGroupContext.Provider value={{ name, onChange: handleChange, value }}>
             {children}
          </CheckGroupContext.Provider>
       </div>

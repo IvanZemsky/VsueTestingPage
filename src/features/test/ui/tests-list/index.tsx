@@ -8,6 +8,10 @@ type Props = {
    className?: string
 }
 export const TestsList = ({ tests, className }: Props) => {
+   if (!tests.length) {
+      return <p>Ничего не найдено</p>
+   }
+
    return (
       <div className={clsx(styles.content, className)}>
          {tests.map((test) => (

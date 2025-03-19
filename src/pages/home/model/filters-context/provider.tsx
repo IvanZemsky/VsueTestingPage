@@ -13,8 +13,6 @@ export const TestsFiltersContextProvider = ({ children }: PropsWithChildren) => 
       direction: "",
    })
 
-   console.log(filters)
-
    return (
       <TestsFiltersContext.Provider value={{ filters, setFilters }}>
          {children}

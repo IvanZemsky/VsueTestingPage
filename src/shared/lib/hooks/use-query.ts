@@ -23,7 +23,7 @@ export function useQuery<T>({ queryFn, enabled = true, dependency }: UseQueryOpt
             }
          })
          .finally(() => setIsLoading(false))
-   }, [dependency])
+   }, [dependency, enabled])
 
    return { isLoading, isError, data }
 }

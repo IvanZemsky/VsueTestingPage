@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import styles from "./styles.module.css"
 import { SelectAnswer } from "../select-answer"
 import { ProgressLine } from "@/shared/ui"
-import { getMaxResultScore } from "../../lib/getMaxResultScore"
+import { getMaxResultScore } from "../../lib/get-max-result-score"
 
 type Props = {
    testId: TestId

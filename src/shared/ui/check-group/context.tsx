@@ -3,6 +3,7 @@ import { ChangeEventHandler, createContext, useContext } from "react"
 export const CheckGroupContext = createContext<{
    name?: string
    onChange?: ChangeEventHandler<HTMLInputElement>
+   value: string[]
 }>({})
 
 export function useCheckGroupContext() {

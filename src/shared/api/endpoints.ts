@@ -3,4 +3,5 @@ export const API_ENDPOINTS = {
    Questions: "questions",
    Departments: "departments",
    Directions: "directions",
+   Passes: "passes",
 }
