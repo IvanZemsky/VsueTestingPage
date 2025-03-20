@@ -76,6 +76,7 @@ button.themeBtn {
 
    .burgerBtn {
       display: flex;
+      z-index: 390;
    }
 
    .menu {
@@ -92,7 +93,7 @@ button.themeBtn {
       background-color: var(--primary-contrast);
       box-shadow: -2px 0px 4px 5px rgba(0, 0, 0, 0.15);
       transition: 0.15s transform ease-in-out;
-      z-index: 400;
+      z-index: 380;
    }
 
    :global(.dark) .menu {

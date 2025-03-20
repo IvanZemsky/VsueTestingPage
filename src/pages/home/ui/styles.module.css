@@ -11,9 +11,22 @@
    gap: 25px;
 }
 
+.testsWrap{
+   display: flex;
+   flex-direction: column;
+   gap: 25px;
+}
+
 .filters {
    max-width: 356px;
    width: 100%;
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+}
+
+.openFiltersBtn, .backBtn{
+   display: none;
 }
 
 @media screen and (max-width: 1150px) {
@@ -21,11 +34,27 @@
       position: fixed;
       top: 0;
       right: 0;
+      transform: translateX(calc(100% + 10px));
+      height: 100vh;
       padding: 15px;
       max-width: 400px;
       box-shadow: -2px 0px 4px 5px rgba(0, 0, 0, 0.15);
       background-color: var(--primary-contrast);
       overflow-y: auto;
+      transition: transform 0.15s ease;
       z-index: 400;
+   }
+
+   .filters.opened {
+      transform: translateX(0);
+   }
+
+   .backBtn{
+      display: flex;
+      font-size: 16px;
+   }
+
+   .openFiltersBtn{
+      display: flex;
    }
 }

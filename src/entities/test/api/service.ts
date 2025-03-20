@@ -37,13 +37,13 @@ export const testsService = {
       }
 
       const response = await API.get<GetTestDto[]>(Tests, queryOptions)
-      const tests = response.map(testAdapters.main)
+      const tests = response.map(testAdapters.test)
       return tests
    },
 
    async fetchTestById(id: TestId, options: ApiQueryOptions = {}): Promise<Test> {
       const response = await API.get<GetTestDto>(setPath(Tests, id), options)
-      const test = testAdapters.main(response)
+      const test = testAdapters.test(response)
       return test
    },
 

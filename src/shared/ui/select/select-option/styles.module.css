@@ -40,6 +40,10 @@
    color: var(--secondary-contrast-text);
 }
 
+:global(.dark) .wrap input:checked + label > button {
+   background-color: var(--secondary-super-light);
+}
+
 .optionBtn{
    text-align: start;
 }

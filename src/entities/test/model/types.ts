@@ -17,9 +17,10 @@ export type Subject =
 
 export type Qualification = "Бакалаврит" | "Специалитет" | "Магистратура" | "СПО"
 
-export type Tag = {
+export type SpecializationTag = {
+   id: string
    name: string
-   emoji: string
+   symbol: string
 }
 
 export type Answer = {
@@ -53,7 +54,7 @@ export type Test = {
    maxResult: number
    entranceTests: Subject[]
    specializationCode: string
-   tags: Tag[]
+   tags: SpecializationTag[]
    department: DepartmentId
    qualification: Qualification
    passes: number

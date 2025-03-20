@@ -1,6 +1,8 @@
 .answer {
    position: relative;
    flex: 1 0 auto;
+   display: flex;
+   flex-direction: column;
    min-height: 75px;
 }
 
@@ -10,6 +12,7 @@
 
 .answerText {
    position: relative;
+   flex-grow: 1;
    display: flex;
    align-items: center;
    width: 100%;
